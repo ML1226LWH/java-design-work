@@ -31,7 +31,7 @@ p{
 }
 /*--body default ends here--*/
 .navbar-default {
-	background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+	background-color: #1379C0;
 	border:none;
 	margin: 0;
 	border-radius: 0;
@@ -127,7 +127,7 @@ p{
 }
 ul.form_acess {
 	float: right;
-	background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+	background-color: #1379C0;
 	margin:22px 0px;
 	position: relative;
 }
@@ -196,7 +196,7 @@ button.btn.btn-info.sld {
 	border-radius: 2px;
 }
 button.btn.btn-info.sld:hover{
-	background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+	background-color: #1379C0;
 	transition:0.5s all;
 }
 .carousel-caption h3 {
@@ -217,7 +217,7 @@ button.btn.btn-info.sld:hover{
 }
 .re_styl2 {
 	font-size: 30px;
-	background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+	background-color: #1379C0;
 }
 .txt-div h4 {
 	font-size: 20px;
@@ -316,7 +316,7 @@ button.btn.btn-info.sld:hover{
 	left: 0;
 	padding: 20px;
 	background: #272727;
-	background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+	background-color: #1379C0;
 }
 
 .grid figcaption h3 {
@@ -336,7 +336,7 @@ button.btn.btn-info.sld:hover{
 	padding: 5px 10px;
 	border-radius: 2px;
 	display: inline-block;
-	background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+	background-color: #1379C0;
 	color: #fff;
 }
 .grid figcaption a:hover{
@@ -386,7 +386,7 @@ button.btn.btn-info.sld:hover{
 }
 /*--logo--*/
 .logo_label{
-	background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+	background-color: #1379C0;
 }
 .re_styl5 {
 	width: 10%;
@@ -630,7 +630,7 @@ li.grid_1>h4,h4.head1,.grid_3 h4,.grid_4 h4,.grid_5 h4,.grid_6 h4,.page-header h
 	font-size: 25px;
 }
 .cam {
-	background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+	background-color: #1379C0;
 	padding: 10px 17.5px;
 	font-size: 20px;
 	color: #fff;	

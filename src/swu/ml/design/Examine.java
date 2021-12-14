@@ -4,21 +4,21 @@ import java.sql.SQLException;
 
 public class Examine {
     public static String check(String users,String pwd) throws SQLException {
-        String sql="SELECT * FROM users_examine WHERE users='"+users+"';";
+        String sql="SELECT * FROM user_info WHERE users='"+users+"';";
         String pwd_return = DBUtils.getPwd(sql);
         System.out.println("return:"+pwd_return);
-        System.out.println("ÊäÈëµÄÃÜÂë£º"+pwd);
+        System.out.println("è¾“å…¥ï¼š"+pwd);
         String examine ;
         System.out.println(pwd_return);
         System.out.println(pwd);
         if(pwd.equals(pwd_return))
         {
-            System.out.println("²éÑ¯³É¹¦£¡");
-            examine="µÇÂ¼³É¹¦! ÄãºÃ"+users+"!";
+            System.out.println("å¯†ç æ ¸å¯¹æˆåŠŸ");
+            examine="ç™»å½•æˆåŠŸ"+users+"!";
         }
         else{
-            System.out.println("²éÑ¯Ê§°Ü£¡");
-            examine ="µÇÂ¼Ê§°Ü£¡";
+            System.out.println("å¯†ç æ ¸å¯¹å¤±è´¥");
+            examine ="ç™»å½•å¤±è´¥";
         }
         return examine;
 
