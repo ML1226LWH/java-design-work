@@ -1,6 +1,8 @@
 package swu.ml.design;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DBUtils {
     private static String DB_DRIVER = "com.mysql.cj.jdbc.Driver";
@@ -9,6 +11,9 @@ public class DBUtils {
     private static String DB_PASS = "qwe12345";
 
     public static void checkUsers(String sql) throws SQLException {
+        excute(sql);
+    }
+    public static void insert(String sql) throws SQLException {
         excute(sql);
     }
 
@@ -50,4 +55,30 @@ public class DBUtils {
         }
         return null;
     }
+    public static List<Destination> getDestination(String sql) throws SQLException {
+        try {
+            Class.forName(DB_DRIVER);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        List<Destination> destinations = new ArrayList<>();
+
+        try (Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS)) {
+            try (Statement statement = connection.createStatement()) {
+                ResultSet rs = statement.executeQuery(sql);
+                while (rs.next()) {
+                    Destination destination = new Destination();
+                    destination.setId(rs.getInt("id"));
+                    destination.setPlace(rs.getString("place"));
+                    destination.setDescribe(rs.getString("describe"));
+                    destination.setImg(rs.getString("img"));
+                    destinations.add(destination);
+                }
+            }
+        }
+
+        return destinations;
+    }
+
 }

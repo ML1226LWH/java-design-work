@@ -51,7 +51,7 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav cl-effect-2 active_hover">
           <li><a href="index.jsp"><span class="active" data-hover="Home">Home</span></a></li>
-          <li><a href="about.html"><span data-hover="About">About </span></a></li>
+          <li><a href="admin/AddPlace.html"><span data-hover="About">About </span></a></li>
           <li><a href="gallery.html"><span data-hover="Gallery">Gallery</span></a></li>
           <li><a href="blog.html"><span data-hover="Typo">Typo</span></a></li>
           <li><a href="login.html"><span data-hover="Contact">登录</span></a></li>

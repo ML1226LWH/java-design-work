@@ -29,13 +29,24 @@
         <url-pattern>/validateCode</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>setDestinationServlet</servlet-name>
+        <servlet-class>swu.ml.design.SetDestinationServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>setDestinationServlet</servlet-name>
+        <url-pattern>/setDestination</url-pattern>
+    </servlet-mapping>
+<!--
+
     <filter>
         <filter-name>authFilter</filter-name>
         <filter-class>swu.ml.design.AuthFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>authFilter</filter-name>
-        <url-pattern>/admin/*</url-pattern>
+        <url-pattern>/MyNewApp/admin/*</url-pattern>
     </filter-mapping>
 
     <filter>
@@ -46,5 +57,6 @@
         <filter-name>charsetFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
+-->
 
 </web-app>
