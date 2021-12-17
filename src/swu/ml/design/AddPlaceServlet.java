@@ -13,7 +13,7 @@ import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.List;
 
-public class SetDestinationServlet extends HttpServlet {
+public class AddPlaceServlet extends HttpServlet {
     private static final long serialVersionUID = 1139723442711986380L;
     private static final int MEMORY_THRESHOLD   = 1024 * 1024 * 3;  // 3MB
     private static final int MAX_FILE_SIZE      = 1024 * 1024 * 40; // 40MB

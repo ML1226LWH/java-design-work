@@ -54,7 +54,7 @@
           <li><a href="admin/AddPlace.html"><span data-hover="About">About </span></a></li>
           <li><a href="gallery.html"><span data-hover="Gallery">Gallery</span></a></li>
           <li><a href="blog.html"><span data-hover="Typo">Typo</span></a></li>
-          <li><a href="login.html"><span data-hover="Contact">登录</span></a></li>
+          <li><a href="login.html"><span data-hover="登录">登录</span></a></li>
         </ul>
         <ul class="form_acess">
           <form class="re-disgn1">
