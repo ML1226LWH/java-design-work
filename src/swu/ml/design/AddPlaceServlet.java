@@ -30,12 +30,11 @@ public class AddPlaceServlet extends HttpServlet {
     public void doPost(HttpServletRequest request,HttpServletResponse response) throws IOException {
         response.setCharacterEncoding("UTF-8");
         Destination destination = new Destination();
+
         String place = request.getParameter("place");
         String describe = request.getParameter("describe");
         String imgpath = request.getParameter("img");
-        destination.setPlace(place);
-        destination.setDescribe(describe);
-        destination.setImg(imgpath);
+
         //检测是否为多媒体上传
         if (!ServletFileUpload.isMultipartContent(request)) {
             // 如果不是则停止

@@ -32,12 +32,12 @@ public class LoginServlet extends HttpServlet {
         HttpSession session = request.getSession(true);
         String validateCode = (String) session.getAttribute(AuthFilter.LOGIN_VALIDATE_CODE);
         if (validateCode == null || !validateCode.equalsIgnoreCase(code)) {
-            response.sendRedirect("/MyNewApp/login.html");
+            response.sendRedirect("/MyNewApp/tuyang-login.html");
             return;
         }
         try {
             if (check(logs.getUsers(), logs.getPwd()).equals("登录失败！")) {
-                response.sendRedirect("/MyNewApp/login.html");
+                response.sendRedirect("/MyNewApp/tuyang-login.html");
             } else {
                 response.sendRedirect("/MyNewApp/admin/AddPlace.html");
             }

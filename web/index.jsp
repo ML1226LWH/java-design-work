@@ -44,7 +44,7 @@
           <span class="icon-bar"></span>
         </button>
         <div class="logo">
-          <a class="navbar-brand" href="index.html">Hunk</a>
+          <a class="navbar-brand" href="index.html">途🐏</a>
         </div>
       </div>
       <!-- Collect the nav links, forms, and other content for toggling -->
@@ -52,9 +52,9 @@
         <ul class="nav navbar-nav cl-effect-2 active_hover">
           <li><a href="index.jsp"><span class="active" data-hover="Home">Home</span></a></li>
           <li><a href="admin/AddPlace.html"><span data-hover="About">About </span></a></li>
-          <li><a href="gallery.html"><span data-hover="Gallery">Gallery</span></a></li>
+          <li><a href="gallery.html"><span data-hover="Scenery">Scenery</span></a></li>
           <li><a href="blog.html"><span data-hover="Typo">Typo</span></a></li>
-          <li><a href="login.html"><span data-hover="登录">登录</span></a></li>
+          <li><a href="tuyang-login.html"><span data-hover="Login">Login</span></a></li>
         </ul>
         <ul class="form_acess">
           <form class="re-disgn1">
@@ -300,7 +300,7 @@
         <ul class="customer">
           <li><a href="#">Terms and Conditions</a></li>
           <li><a href="#">Privacy Policy</a></li>
-          <li><a href="login.html">Contact Us</a></li>
+          <li><a href="tuyang-login.html">Contact Us</a></li>
           <li><a href="#">FAQ</a></li>
         </ul>
       </div>

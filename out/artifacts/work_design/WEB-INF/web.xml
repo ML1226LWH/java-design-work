@@ -30,13 +30,23 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>setDestinationServlet</servlet-name>
-        <servlet-class>swu.ml.design.SetDestinationServlet</servlet-class>
+        <servlet-name>addPlaceServlet</servlet-name>
+        <servlet-class>swu.ml.design.AddPlaceServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>setDestinationServlet</servlet-name>
-        <url-pattern>/MyNewApp/admin/setDestination</url-pattern>
+        <servlet-name>addPlaceServlet</servlet-name>
+        <url-pattern>/MyNewApp/admin/addPlace</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>listPlaceservlet</servlet-name>
+        <servlet-class>swu.ml.design.ListPlaceServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>listPlaceservlet</servlet-name>
+        <url-pattern>/listPlace</url-pattern>
     </servlet-mapping>
 
     <filter>

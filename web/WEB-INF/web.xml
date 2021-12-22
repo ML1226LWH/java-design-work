@@ -39,6 +39,16 @@
         <url-pattern>/MyNewApp/admin/addPlace</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>listPlaceservlet</servlet-name>
+        <servlet-class>swu.ml.design.ListPlaceServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>listPlaceservlet</servlet-name>
+        <url-pattern>/listPlace</url-pattern>
+    </servlet-mapping>
+
     <filter>
         <filter-name>authFilter</filter-name>
         <filter-class>swu.ml.design.AuthFilter</filter-class>

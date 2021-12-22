@@ -22,7 +22,7 @@ public class AuthFilter extends HttpFilter {
         Boolean status = (Boolean) session.getAttribute(LOGIN_STATUS);
 
         if (status == null || status.equals(Boolean.FALSE)) {
-            response.sendRedirect("/MyNewApp/login.html");
+            response.sendRedirect("./tuyang-login.html");
         } else {
             chain.doFilter(request, response);
         }
