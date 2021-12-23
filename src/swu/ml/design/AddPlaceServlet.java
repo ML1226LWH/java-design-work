@@ -4,36 +4,47 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.List;
-
 public class AddPlaceServlet extends HttpServlet {
     private static final long serialVersionUID = 1139723442711986380L;
-    private static final int MEMORY_THRESHOLD   = 1024 * 1024 * 3;  // 3MB
-    private static final int MAX_FILE_SIZE      = 1024 * 1024 * 40; // 40MB
-    private static final int MAX_REQUEST_SIZE   = 1024 * 1024 * 50; // 50MB
+    private static final int MEMORY_THRESHOLD = 1024 * 1024 * 3;  // 3MB
+    private static final int MAX_FILE_SIZE = 1024 * 1024 * 40; // 40MB
+    private static final int MAX_REQUEST_SIZE = 1024 * 1024 * 50; // 50MB
     // 上传文件存储目录
     private static final String UPLOAD_DIRECTORY = "upload";
 
     private static final String INSERT_TEMPLATE =
-            "INSERT INTO destination (`place`, `desccribe`, `img`) " +
+            "INSERT INTO destination (`place`, `describe`, `img`) " +
                     "VALUES ('%s', '%s', '%s')";
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        this.doPost(request,response);
-    }
-    public void doPost(HttpServletRequest request,HttpServletResponse response) throws IOException {
-        response.setCharacterEncoding("UTF-8");
-        Destination destination = new Destination();
 
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        this.doPost(request, response);
+    }
+
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+
+        //Destination destination = new Destination();
+        /*String place = request.getParameter("place");
+        System.out.println("place1="+place);
+        String describe = request.getParameter("describe");
+        System.out.println("describe1="+describe);
+        String imgpath = request.getParameter("img");
+        byte source [] = place.getBytes("iso8859-1");
+        place = new String (source,"UTF-8");
+        System.out.println("place2="+place);*/
         String place = request.getParameter("place");
         String describe = request.getParameter("describe");
-        String imgpath = request.getParameter("img");
 
         //检测是否为多媒体上传
         if (!ServletFileUpload.isMultipartContent(request)) {
@@ -103,14 +114,15 @@ public class AddPlaceServlet extends HttpServlet {
             e.printStackTrace();
         }
 
-        String sql = String.format(INSERT_TEMPLATE, place, describe, imgpath);
+        String sql = String.format(INSERT_TEMPLATE, place, describe, pics);
         System.out.println(sql);
 
         try {
             DBUtils.insert(sql);
-            response.sendRedirect("./gallery_root.html");
+            response.sendRedirect("./gallery.html");
         } catch (SQLException | IOException e) {
             e.printStackTrace();
         }
     }
+
 }

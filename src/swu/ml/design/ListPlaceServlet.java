@@ -43,7 +43,7 @@ public class ListPlaceServlet extends HttpServlet {
             Destination destination = destinations.get(i);
             if (i > 0) sb.append(",");
             sb.append(String.format(
-                    "{\"id\": %s, \"place\": \"%s\",\"describe\": \"%s\",\"img\": %s}",
+                    "{\"id\": %s, \"place\": \"%s\",\"describe\": \"%s\",\"img\": \"%s\"}",
                     destination.getId(), destination.getPlace(), destination.getDescribe(), destination.getImg()
             ));
             System.out.println("id="+destination.getId()+"place="+destination.getPlace()+"describe="+destination.getDescribe()+"img="+destination.getImg());

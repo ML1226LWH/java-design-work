@@ -14,12 +14,13 @@ public class LoginServlet extends HttpServlet {
     private static final long serialVersionUID = 1743051812167088094L;
 
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws  IOException {
         this.doPost(request, response);
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setCharacterEncoding("UTF-8");
+
         String users = request.getParameter("users");
         String password = request.getParameter("pwd");
         String code = request.getParameter("code");

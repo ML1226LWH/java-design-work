@@ -9,15 +9,24 @@
     <description> Welcome To My Web App</description>
 
     <servlet>
-        <servlet-name>loginservlet</servlet-name>
+        <servlet-name>loginServlet</servlet-name>
         <servlet-class>swu.ml.design.LoginServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>loginservlet</servlet-name>
+        <servlet-name>loginServlet</servlet-name>
         <url-pattern>/login</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>addPlaceServlet</servlet-name>
+        <servlet-class>swu.ml.design.AddPlaceServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>addPlaceServlet</servlet-name>
+        <url-pattern>/addPlace</url-pattern>
+    </servlet-mapping>
 
     <servlet>
         <servlet-name>validateCodeServlet</servlet-name>
@@ -29,23 +38,14 @@
         <url-pattern>/validateCode</url-pattern>
     </servlet-mapping>
 
-    <servlet>
-        <servlet-name>addPlaceServlet</servlet-name>
-        <servlet-class>swu.ml.design.AddPlaceServlet</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>addPlaceServlet</servlet-name>
-        <url-pattern>/MyNewApp/admin/addPlace</url-pattern>
-    </servlet-mapping>
 
     <servlet>
-        <servlet-name>listPlaceservlet</servlet-name>
+        <servlet-name>listPlaceServlet</servlet-name>
         <servlet-class>swu.ml.design.ListPlaceServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>listPlaceservlet</servlet-name>
+        <servlet-name>listPlaceServlet</servlet-name>
         <url-pattern>/listPlace</url-pattern>
     </servlet-mapping>
 
@@ -66,6 +66,5 @@
         <filter-name>charsetFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
-
 
 </web-app>

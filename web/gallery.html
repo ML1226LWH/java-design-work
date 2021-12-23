@@ -85,36 +85,31 @@
 							$.ajax({
 								url:"./listPlace?page="+page,
 								method:"GET",
-
-							}).done(function (result){
-								result=eval('('+result+')');
-								updatePlaceTable(result.destinations);
+								dataType:"json",
+								}).done(function (result){
+								updateDestinationTable(result.destinations);
 							}).fail(function (xhr,status){
 								console.log(status);
 							});
-							console.log(status);
+							console.log("button clicked!");
 						}
 
-						function  updatePlaceTable(destinations){
-							var t=$("destinationsTable");
+						function  updateDestinationTable(destinations){
+							var t=$("destinationTable");
 							t.empty();
 							for(var i=0;i<destinations.length;i++){
 								var b=destinations[i];
-								var tr=null;
-								tr.append("<li className=\"col-md-3 pd_stn\">\n" +
-										"\t\t<div className=\"grid_item\">");
+								var tr=""
+								tr.append("<li className=\"col-md-3 pd_stn\"><div className=\"grid_item\">");
 								tr.append("<a href=\""+b.img+"\" className=\"swipebox\"");
 								tr.append("<img src=\""+b.img+"\" alt=\"/\" className=\"img-responsive\">");
 								tr.append("<div className=\"hover_span hvr-text\">")
 								tr.append("<h6>"+b.id+"</h6>");
-								tr.append("<div className=\"hvr-icons\">\n" +
-										"\t\t\t\t\t\t\t<span className=\"glyphicon glyphicon-camera cam\" aria-hidden=\"true\"></span><br>\n" +
-										"\t\t\t\t\t\t\t<span className=\"glyphicon glyphicon-menu-right nav_rt\" aria-hidden=\"true\"></span>\n" +
-										"\t\t\t\t\t\t</div>\n" +
-										"\t\t\t\t\t</div>\n" +
-										"\t\t\t</a>\n" +
-										"\t\t</div>\n" +
-										"\t</li>");
+								tr.append("<div className=\"hvr-icons\">" +
+										"<span className=\"glyphicon glyphicon-camera cam\" aria-hidden=\"true\"></span><br>" +
+										"<span className=\"glyphicon glyphicon-menu-right nav_rt\" aria-hidden=\"true\"></span>" +
+										"</div>" + "</div>" + "</a>" + "</div>" + "</li>");
+								t.append(tr);
 							}
 						}
 					</script>
