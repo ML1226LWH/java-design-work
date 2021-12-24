@@ -8,7 +8,7 @@
 		<script type="application/x-javascript"> addEventListener("load", function() {setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 		<!meta charset utf="8">
 		<!--fonts-->
-				
+		<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
 			
 		<!--fonts-->
 		<!--choclatecss-->
@@ -95,13 +95,12 @@
 						}
 
 						function  updateDestinationTable(destinations){
-							var t=$("destinationTable");
+							var t=$("#destinationTable");
 							t.empty();
-							for(var i=0;i<destinations.length;i++){
-								var b=destinations[i];
-								var tr=""
-								tr.append("<li className=\"col-md-3 pd_stn\"><div className=\"grid_item\">");
-								tr.append("<a href=\""+b.img+"\" className=\"swipebox\"");
+							for(let i=0; i<destinations.length; i++){
+								const b = destinations[i];
+								const tr = $("<li className='col-md-3 pd_stn'><div className='grid_item'");
+								//tr.append("<a href=\""+b.img+"\" className=\"swipebox\"");
 								tr.append("<img src=\""+b.img+"\" alt=\"/\" className=\"img-responsive\">");
 								tr.append("<div className=\"hover_span hvr-text\">")
 								tr.append("<h6>"+b.id+"</h6>");
@@ -111,7 +110,10 @@
 										"</div>" + "</div>" + "</a>" + "</div>" + "</li>");
 								t.append(tr);
 							}
+							$("#destinationTable").html(t);
 						}
+
+
 					</script>
 				</div>
 			</div>

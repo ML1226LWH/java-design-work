@@ -44,6 +44,7 @@ public class AddPlaceServlet extends HttpServlet {
         place = new String (source,"UTF-8");
         System.out.println("place2="+place);*/
         String place = request.getParameter("place");
+        System.out.println("place="+place);
         String describe = request.getParameter("describe");
 
         //检测是否为多媒体上传
@@ -97,7 +98,8 @@ public class AddPlaceServlet extends HttpServlet {
                         System.out.println(filePath);
                         // 保存文件到硬盘
                         item.write(storeFile);
-                        pics += fileName + ",";
+
+                       pics ="/MyNewApp/upload/"+ fileName;
                     } else {
                         if (item.getFieldName().equals("place")) {
                             place = item.getString();
