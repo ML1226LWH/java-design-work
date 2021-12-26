@@ -11,13 +11,34 @@
             setTimeout(hideURLbar, 0);
         }, false);
 
+<<<<<<< HEAD
         function hideURLbar() {
             window.scrollTo(0, 1);
         } </script>
+=======
+						function  updateDestinationTable(destinations){
+							var t=$("#destinationTable");
+							t.empty();
+							for(let i=0; i<destinations.length; i++){
+								const b = destinations[i];
+								const tr = $("<li className='col-md-3 pd_stn'><div className='grid_item'");
+								tr.append("<a href=\'"+b.img+"\' className=\'swipebox\'");
+								tr.append("<img src=\'"+b.img+"\' className=\'img-responsive\'>");
+								tr.append("<div className=\'hover_span hvr-text\'>")
+								tr.append("<h6>"+b.id+"</h6>");
+								tr.append("<div className=\'hvr-icons\'>" +
+										"<span className=\'glyphicon glyphicon-camera cam\' aria-hidden=\'true\'></span><br>" +
+										"<span className=\'glyphicon glyphicon-menu-right nav_rt\' aria-hidden=\'true\'></span>" +
+										"</div>" + "</div>" + "</a>" + "</div>" + "</li>");
+								t.append(tr);
+							}
+						}
+>>>>>>> 2a9484d88a72668cf84fc27655d569a4555d44f6
 
         <!--fonts-->
         <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
 
+<<<<<<< HEAD
         <!--fonts-->
         <!--choclatecss-->
         <link rel="stylesheet" href="css/chocolat.css" type="text/css" media="screen" charset="utf-8"/>
@@ -84,6 +105,82 @@
                 });
             </script>
             <div class="gallery-grids">
+=======
+					</script>
+				</div>
+			</div>
+		</div>
+		<!--footer-->
+		<div class="logo_label">
+				<div class="container">
+					<div class="logo re_styl5">
+						<a class="navbar-brand" href="#">途🐏</a>
+					</div>
+				</div>
+			</div>
+			<div class="footer">
+				<div class="container">
+					<div class="div1">
+						<div class="col-md-2 head">
+							<h3>get inspired</h3>
+							<ul class="inspired">
+								<li><a href="#">Head wear</a></li>
+								<li><a href="#">mens</a></li>
+								<li><a href="#">Unisex</a></li>
+								<li><a href="#">Brand protection</a></li>
+								<li><a href="#">investors</a></li>
+							</ul>
+						</div>
+						<div class="col-md-2 head">
+							<h3>support</h3>
+							<ul class="customer">
+								<li><a href="#">Terms and Conditions</a></li>
+								<li><a href="#">Privacy Policy</a></li>
+								<li><a href="tuyang-login.html">Contact Us</a></li>
+								<li><a href="#">FAQ</a></li>
+							</ul>
+						</div>
+						<div class="col-md-2 head">
+							<h3>sites</h3>
+							<ul class="sites">
+								<li><a href="#">yyy.com</a></li>
+								<li><a href="#">zzz.com</a></li>
+								<li><a href="#">aaa.com</a></li>
+							</ul>
+						</div>
+						<div class="col-md-2 head">
+							<h3>contents</h3>
+							<ul class="contents">
+								<li><a href="gallery.html">Gallery</a></li>
+								<li><a href="blog.html">Typo</a></li>
+							</ul>
+						</div>
+						<div class="col-md-4 mail_soc">
+							<div class="form_data">
+								<form>
+									<input class="mail2" type="text" name="email" value="E-mail" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'E-mail';}">
+									<input class="btn btn-default re_dsgn6" type="button" value="join">
+								</form>
+								<p>subscribe us.</p>
+							</div>
+								<div class="social">
+									<ul>
+										<li><a href="#" class="face"></a></li>
+										<li><a href="#" class="twit"></a></li>
+										<li><a href="#" class="gplus"></a></li>
+										<li><a href="#" class="insta"></a></li>
+									</ul>
+								</div>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="div2">
+						<p>Copyright &copy; 2015.Company name All rights reserved.More Templates <a href="http://www.baisheng999.com/" target="_blank" title="网站模板库">网站模板库</a> - Collect from <a href="http://www.baisheng999.com/" title="网页模板" target="_blank">网页模板</a></p>
+					</div>
+				</div>
+			</div>
+	</body>
+>>>>>>> 2a9484d88a72668cf84fc27655d569a4555d44f6
 
                 <ul>
                     <embed width="1000" height="1000" src="./a.jsp" id="myiframe"/>

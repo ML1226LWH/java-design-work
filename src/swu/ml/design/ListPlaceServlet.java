@@ -18,7 +18,7 @@ public class ListPlaceServlet extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) {
         String page = request.getParameter("page");
 
-        int offset = (Integer.valueOf(page).intValue() - 1) * 4;
+        int offset = (Integer.valueOf(page).intValue() - 1) * 2;
 
         String sql = "SELECT * FROM destination ORDER BY id DESC LIMIT 2 OFFSET " + offset;
 

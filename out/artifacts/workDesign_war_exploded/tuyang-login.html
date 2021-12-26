@@ -70,7 +70,27 @@
 					<div class="contact_form">
 						<form method="post" action="./login">
 
+<<<<<<< HEAD:out/artifacts/workDesign_war_exploded/tuyang-login.html
 							<input class="name" type="text" name="users" value="Your name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}"><br>
+=======
+						function  updateDestinationTable(destinations){
+							var t=$("#destinationTable");
+							t.empty();
+							for(let i=0; i<destinations.length; i++){
+								const b = destinations[i];
+								const tr = $("<li className='col-md-3 pd_stn'><div className='grid_item'");
+								tr.append("<a href=\'"+b.img+"\' className=\'swipebox\'");
+								tr.append("<img src=\'"+b.img+"\' className=\'img-responsive\'>");
+								tr.append("<div className=\'hover_span hvr-text\'>")
+								tr.append("<h6>"+b.id+"</h6>");
+								tr.append("<div className=\'hvr-icons\'>" +
+										"<span className=\'glyphicon glyphicon-camera cam\' aria-hidden=\'true\'></span><br>" +
+										"<span className=\'glyphicon glyphicon-menu-right nav_rt\' aria-hidden=\'true\'></span>" +
+										"</div>" + "</div>" + "</a>" + "</div>" + "</li>");
+								t.append(tr);
+							}
+						}
+>>>>>>> 2a9484d88a72668cf84fc27655d569a4555d44f6:out/artifacts/work_design/gallery.html
 
 							<input class="nuber" type="password" name="pwd"  onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'password';}"><br>
 
@@ -94,7 +114,7 @@
 		<div class="logo_label">
 				<div class="container">
 					<div class="logo re_styl5">
-						<a class="navbar-brand" href="#">Hunk</a>
+						<a class="navbar-brand" href="#">途🐏</a>
 					</div>
 				</div>
 			</div>
