@@ -34,13 +34,13 @@ public class DBUtils {
     public static String getPwd(String sql) {
         try {
             Class.forName(DB_DRIVER);
-            System.out.println("Á¬½ÓÊý¾Ý¿âÖÐ¡­¡­");
+            System.out.println("å·²è¿žæŽ¥");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
         try (Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS)) {
             try (Statement statement = connection.createStatement()) {
-                System.out.println("Ö´ÐÐ²éÑ¯ÖÐ¡­¡­");
+                System.out.println("è¿žæŽ¥ä¸­â€¦â€¦");
                 ResultSet rs = statement.executeQuery(sql);
                 System.out.println("sql2:"+sql);
                 while (rs.next()) {

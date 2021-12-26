@@ -648,6 +648,7 @@ li.grid_1>h4,h4.head1,.grid_3 h4,.grid_4 h4,.grid_5 h4,.grid_6 h4,.page-header h
 	color: #fff;
 	font-family: 'Oswald', sans-serif;
 	font-weight: 300;
+
 }
 .hvr-text h6 {
 	font-size: 22px;
@@ -656,6 +657,7 @@ li.grid_1>h4,h4.head1,.grid_3 h4,.grid_4 h4,.grid_5 h4,.grid_6 h4,.page-header h
 	color: #fff;
 	font-family: 'Oswald', sans-serif;
 	font-weight: 300;
+
 }
 .hvr-icons {
  	 padding-top: 12.4em;
@@ -667,6 +669,7 @@ li.grid_1>h4,h4.head1,.grid_3 h4,.grid_4 h4,.grid_5 h4,.grid_6 h4,.page-header h
 	z-index: 9;
 	top: 0%;
 	left: 0%;
+	text-align: center;
 }
 .grid_item{
 	position: relative;	

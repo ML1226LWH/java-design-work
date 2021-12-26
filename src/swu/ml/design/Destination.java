@@ -1,39 +1,50 @@
 package swu.ml.design;
 
 public class Destination {
-    private static int id;
-    private static String place;
-    private static String describe;
-    private static String img;
-    public static String getPlace() {
-        return place;
-    }
+    private int id;
+    private String place;
+    private String img;
+    private String describe;
 
-    public static void setPlace(String place) {
-        Destination.place = place;
-    }
-
-    public static String getDescribe() {
-        return describe;
-    }
-
-    public static void setDescribe(String describe) {
-        Destination.describe = describe;
-    }
-
-    public static String getImg() {
-        return img;
-    }
-
-    public static void setImg(String img) {
-        Destination.img = img;
-    }
-
-    public static int getId() {
+    public int getId() {
         return id;
     }
 
-    public static void setId(int id) {
-        Destination.id = id;
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getPlace() {
+        return place;
+    }
+
+    public void setPlace(String place) {
+        this.place = place;
+    }
+
+    public String getDescribe() {
+        return describe;
+    }
+
+    public void setDescribe(String describe) {
+        this.describe = describe;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
+
+    @Override
+    public String toString() {
+        return "Destination{" +
+                "id=" + id +
+                ", place='" + place + '\'' +
+                ", img='" + img + '\'' +
+                ", describe='" + describe + '\'' +
+                '}';
     }
 }

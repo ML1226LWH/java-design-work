@@ -8,9 +8,11 @@
     <display-name>Welcome to My Web App</display-name>
     <description> Welcome To My Web App</description>
 
+
     <servlet>
         <servlet-name>loginServlet</servlet-name>
         <servlet-class>swu.ml.design.LoginServlet</servlet-class>
+
     </servlet>
 
     <servlet-mapping>
@@ -21,6 +23,7 @@
     <servlet>
         <servlet-name>addPlaceServlet</servlet-name>
         <servlet-class>swu.ml.design.AddPlaceServlet</servlet-class>
+
     </servlet>
 
     <servlet-mapping>
@@ -31,6 +34,7 @@
     <servlet>
         <servlet-name>validateCodeServlet</servlet-name>
         <servlet-class>swu.ml.design.ValidateCodeServlet</servlet-class>
+
     </servlet>
 
     <servlet-mapping>
@@ -42,11 +46,13 @@
     <servlet>
         <servlet-name>listPlaceServlet</servlet-name>
         <servlet-class>swu.ml.design.ListPlaceServlet</servlet-class>
+
     </servlet>
 
     <servlet-mapping>
         <servlet-name>listPlaceServlet</servlet-name>
         <url-pattern>/listPlace</url-pattern>
+
     </servlet-mapping>
 
     <filter>
