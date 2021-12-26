@@ -25,7 +25,7 @@ public class ListPlaceServlet extends HttpServlet {
         System.out.println(sql);
 
         try {
-            List<Destination> destinations = DBUtils.getDestination(sql);
+            List<Destination> destinations = DBUtils.getDestinations(sql);
 
             response.setContentType("application/json");
             response.setCharacterEncoding("UTF-8");

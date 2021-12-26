@@ -19,7 +19,7 @@ public class LoginServlet extends HttpServlet {
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        //response.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
 
         String users = request.getParameter("users");
         String password = request.getParameter("pwd");

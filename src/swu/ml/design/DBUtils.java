@@ -16,6 +16,9 @@ public class DBUtils {
     public static void insert(String sql) throws SQLException {
         excute(sql);
     }
+    public static void update(String sql) throws SQLException {
+        excute(sql);
+    }
 
     private static void excute(String sql) throws SQLException {
         try {
@@ -55,7 +58,7 @@ public class DBUtils {
         }
         return null;
     }
-    public static List<Destination> getDestination(String sql) throws SQLException {
+    public static List<Destination> getDestinations(String sql) throws SQLException {
         try {
             Class.forName(DB_DRIVER);
         } catch (ClassNotFoundException e) {
@@ -80,5 +83,29 @@ public class DBUtils {
 
         return destinations;
     }
+    public static Destination getDestination(String sql) throws SQLException {
+        try {
+            Class.forName(DB_DRIVER);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        Destination destination = new Destination();
+        try (Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS)) {
+            try (Statement statement = connection.createStatement()) {
+                ResultSet rs = statement.executeQuery(sql);
+
+                while (rs.next()) {
+
+                    destination.setId(rs.getInt("id"));
+                    destination.setPlace(rs.getString("place"));
+                    destination.setDescribe(rs.getString("describe"));
+                    destination.setImg(rs.getString("img"));
+                }
+            }
+        }
+
+        return destination;
+    }
+
 
 }
