@@ -17,22 +17,22 @@ public class EditPlaceServlet extends HttpServlet {
     }
     public void doPost(HttpServletRequest request,HttpServletResponse response) throws IOException {
         String id = request.getParameter("id");
+        System.out.println("id="+id);
+        String sql = "SELECT * FROM destination WHERE id=" + id;
 
-        String sql = "SELECT * FROM books WHERE id=" + id;
-
-        Destination destination = null;
+        List<Destination> destinations = null;
         try {
-            destination = DBUtils.getDestination(sql);
+            destinations = DBUtils.getDestinations(sql);
 
-            response.setContentType("application/json");
-            response.setCharacterEncoding("UTF-8");
-            try (Writer writer = response.getWriter()) {
-                writer.write(this.toJson(destination));
+            if(destinations.size()==0){
+                response.sendRedirect("./gallery_root.html");
             }
-            response.setContentType("application/json");
+            Destination destination=destinations.get(0);
+            StringBuilder sb =new StringBuilder();
+            sb.append(buildPlaceForm(destination));
             response.setCharacterEncoding("UTF-8");
             try (Writer writer = response.getWriter()) {
-                writer.write(this.toJson(destination));
+                writer.write(sb.toString());
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -40,12 +40,22 @@ public class EditPlaceServlet extends HttpServlet {
             throwables.printStackTrace();
         }
     }
-        private String toJson(Destination destination) {
-        StringBuilder sb = new StringBuilder();
-            sb.append(String.format(
-                    "{\"id\": %s, \"place\": \"%s\",\"describe\": \"%s\",\"img\": \"%s\"}",
-                    destination.getId(), destination.getPlace(), destination.getDescribe(), destination.getImg()
-            ));
-        return sb.toString();
+       public String buildPlaceForm(Destination destination){
+        String html=String.format("<div class=\"col-md-6\">\n" +
+                "<div class='contact_form'>\n" +
+                "<form method='post' action='updateplace' enctype='multipart/form-data'>\n" +
+                "\n" +
+                "<input class='nuber'' type='text' name='place' value='%s'>" +
+                "\n" +
+                "<input  class='name' type='text'  style='width:540px; height:144px;'  name='describe' value='%s' ><br>\n" +
+                "<input   class='nuber' type=\"file\"  name=\"img\" value=\"上传图片\"><br>\n" +
+                "\n" +
+                "<button type=\"clear\" class=\"btn btn-info mrgn-can\">Clear</button>\n" +
+                "<button type=\"submit\" class=\"btn btn-info mrgn-can\">Submit</button>\n" +
+                "</form>\n" +
+                "</div>\n" +
+                "</div>",destination.getPlace(),destination.getDescribe());
+           return html;
     }
+
 }
