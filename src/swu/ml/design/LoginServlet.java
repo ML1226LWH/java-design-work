@@ -8,7 +8,6 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
 
-import static swu.ml.design.Examine.check;
 
 public class LoginServlet extends HttpServlet {
     private static final long serialVersionUID = 1743051812167088094L;
@@ -45,6 +44,26 @@ public class LoginServlet extends HttpServlet {
         } catch (SQLException | IOException e) {
             e.printStackTrace();
         }
+
+    }
+    public static String check(String users,String pwd) throws SQLException {
+        String sql="SELECT * FROM user_info WHERE users='"+users+"';";
+        String pwd_return = DBUtils.getPwd(sql);
+        System.out.println("return:"+pwd_return);
+        System.out.println("输入："+pwd);
+        String examine ;
+        System.out.println(pwd_return);
+        System.out.println(pwd);
+        if(pwd.equals(pwd_return))
+        {
+            System.out.println("密码核对成功");
+            examine="登录成功"+users+"!";
+        }
+        else{
+            System.out.println("密码核对失败");
+            examine ="登录失败";
+        }
+        return examine;
 
     }
 }

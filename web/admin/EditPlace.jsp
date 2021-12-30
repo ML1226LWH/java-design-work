@@ -1,4 +1,5 @@
 <doctype html!>
+    <%@ page contentType="text/html; charset=utf-8" language="java" %>
     <html>
     <head>
         <title>Contact</title>
@@ -64,24 +65,19 @@
     </div>
     <!--header-->
 
+
     <div class="contact_page">
         <h3>修改旅游地点</h3>
         <div class="container">
             <div class="col-md-6">
                 <div class="contact_form">
-                    <form method="post" action="updateplace" enctype="multipart/form-data">
-                        <tbody id="editPlace"></tbody>
-
-                        <button type="clear" class="btn btn-info mrgn-can">Clear</button>
-                        <button type="submit" class="btn btn-info mrgn-can">Submit</button>
+                    <button onclick="showEditPlace()" class='btn btn-info mrgn-can'>修改</button>
+                    <form method="post" action="../updateplace" enctype="multipart/form-data" style="height: 1000px;width: 1000px">
+                        <tbody id="place"></tbody>
                     </form>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="map">
-                    <iframe  class="embed-responsive-item" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2708701.6196657238!2d57.47843070707167!3d24.36721917215885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f43496ad9c645%3A0x74ced0bf2b0029e9!2sDubai+-+United+Arab+Emirates!5e0!3m2!1sen!2sin!4v1437020921804"frameborder="0" style="border:0" allowfullscreen></iframe>
-                </div>
-            </div>
+
             <div class="clearfix"></div>
         </div>
     </div>
@@ -156,16 +152,45 @@
     </div>
     </body>
     <script lang="javascript">
-        $(function () {
-            $.get("editplace", function (res) {
+
+        function getQueryString(name) {
+            var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) {
+                return unescape(r[2]);
+            }
+            return null;
+        }
+        function showEditPlace(){
+            $.ajax({
+                url:"../editplace?id="+getQueryString("id"),
+                method:"GET",
+                dataType:"json",
+            }).done(function (result){
+                showPlaceTable(result);
+            }).fail(function (xhr,status){
+                console.log(status);
+            });
+            console.log("Show button clicked!");
+        }
+        function showPlaceTable(destination){
+            var table="";
+            table+="<input class='nuber' type='text' name='place' value='"+destination.place+"'>"+
+                "<input class='name' type='text' style='width:540px;height:144px;' name='describe' value='"+destination.describe+"'>"
+                +"<input class='nuber' type='file' name='img' value=''>"+"<button type='submit' class='btn btn-info mrgn-can'>Submit</button>";
+
+            $("#place").html(table);
+        }
+        /*$(function () {
+            $.get("../editplace", function (res) {
                 var b = res.destination;
                 var dataList = "";
                 dataList += "<input class='nuber' type='text' name='place' value='"+b.place+"'>"+
                     "<input class='name' type='text' style='width:540px;height:144px;' name='describe' value='"+b.describe+"'>"
                 +"<input class='nuber' type='file' name='img' value='"+b.img+"'>"+"<button type='submit' class='btn btn-info mrgn-can'>Submit</button>";
 
-                $("#editPlace").html(dataList)
+                $("#editPlace").html(dataList);
             })
-        })
+        })*/
     </script>
     </html>
