@@ -1,10 +1,9 @@
 package swu.ml.design.service;
-
-
 import swu.ml.design.Destination;
+
+import swu.ml.design.page.PageResult;
 import swu.ml.design.dao.DestinationDao;
 import swu.ml.design.dao.DestinationDaoImpl;
-import swu.ml.design.page.PageResult;
 
 import java.util.List;
 

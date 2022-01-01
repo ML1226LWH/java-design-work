@@ -15,7 +15,7 @@ public class ValidateCodeServlet extends HttpServlet {
     public void doPost(HttpServletRequest request,HttpServletResponse response) throws IOException {
         HttpSession session = request.getSession(true);
         //System.out.println("111");
-        swu.ml.design.ValidateCode coder = new swu.ml.design.ValidateCode();
+        ValidateCode coder = new ValidateCode();
         session.setAttribute(AuthFilter.LOGIN_VALIDATE_CODE, coder.getCodeString());
         //System.out.println("222");
         response.setContentType("image/jpg");

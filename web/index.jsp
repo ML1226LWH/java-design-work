@@ -55,6 +55,7 @@
           <li><a href="gallery.jsp"><span data-hover="Scenery">Scenery</span></a></li>
           <li><a href="blog.html"><span data-hover="Typo">Typo</span></a></li>
           <li><a href="tuyang-login.html"><span data-hover="Login">Login</span></a></li>
+          <li><a><span data-hover="当前访问人数">当前访问<%=this.getServletConfig().getServletContext().getAttribute("count")%>人</span></a></li>
         </ul>
         <ul class="form_acess">
           <form class="re-disgn1">

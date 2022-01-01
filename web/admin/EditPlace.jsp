@@ -71,10 +71,11 @@
         <div class="container">
             <div class="col-md-6">
                 <div class="contact_form">
-                    <button onclick="showEditPlace()" class='btn btn-info mrgn-can'>修改</button>
-                    <form method="post" action="../updateplace" enctype="multipart/form-data" style="height: 1000px;width: 1000px">
-                        <tbody id="place"></tbody>
+                    <form method='post' action='../updateplace' enctype='multipart/form-data'>
+                        <table id="data">
+                        </table>
                     </form>
+                    <button onclick="showEditPlace()" class='btn btn-info mrgn-can'>修改</button>
                 </div>
             </div>
 
@@ -151,6 +152,7 @@
         </div>
     </div>
     </body>
+    <script src="${pageContext.request.contextPath}/js/jquery-2.1.4.min.js"></script>
     <script lang="javascript">
 
         function getQueryString(name) {
@@ -161,36 +163,20 @@
             }
             return null;
         }
-        function showEditPlace(){
-            $.ajax({
-                url:"../editplace?id="+getQueryString("id"),
-                method:"GET",
-                dataType:"json",
-            }).done(function (result){
-                showPlaceTable(result);
-            }).fail(function (xhr,status){
-                console.log(status);
-            });
-            console.log("Show button clicked!");
-        }
-        function showPlaceTable(destination){
-            var table="";
-            table+="<input class='nuber' type='text' name='place' value='"+destination.place+"'>"+
-                "<input class='name' type='text' style='width:540px;height:144px;' name='describe' value='"+destination.describe+"'>"
-                +"<input class='nuber' type='file' name='img' value=''>"+"<button type='submit' class='btn btn-info mrgn-can'>Submit</button>";
+            function showEditPlace() {
+                $.get("../editplace?id=" + getQueryString("id"), function (res) {
+                    console.log(res)
+                    var dataList = "";
+                    dataList += "<input class='nuber' type='text' name='place' value='" + res.place + "'>"
+                        + "<input class='name' type='text' style='width:540px;height:144px;' name='describe' value='" + res.describe + "'>"
+                        + "<input class='nuber' type='file' name='img' value=''>"
+                        + "<button type='submit' class='btn btn-info mrgn-can'>Submit</button><br>";
+                    $("#data").html(dataList);
 
-            $("#place").html(table);
+                })
         }
-        /*$(function () {
-            $.get("../editplace", function (res) {
-                var b = res.destination;
-                var dataList = "";
-                dataList += "<input class='nuber' type='text' name='place' value='"+b.place+"'>"+
-                    "<input class='name' type='text' style='width:540px;height:144px;' name='describe' value='"+b.describe+"'>"
-                +"<input class='nuber' type='file' name='img' value='"+b.img+"'>"+"<button type='submit' class='btn btn-info mrgn-can'>Submit</button>";
 
-                $("#editPlace").html(dataList);
-            })
-        })*/
     </script>
     </html>
+
+

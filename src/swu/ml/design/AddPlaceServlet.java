@@ -1,14 +1,13 @@
 package swu.ml.design;
 
+import  swu.ml.design.utils.DBUtils;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -33,16 +32,6 @@ public class AddPlaceServlet extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
-
-        //Destination destination = new Destination();
-        /*String place = request.getParameter("place");
-        System.out.println("place1="+place);
-        String describe = request.getParameter("describe");
-        System.out.println("describe1="+describe);
-        String imgpath = request.getParameter("img");
-        byte source [] = place.getBytes("iso8859-1");
-        place = new String (source,"UTF-8");
-        System.out.println("place2="+place);*/
         String place = request.getParameter("place");
         System.out.println("place="+place);
         String describe = request.getParameter("describe");

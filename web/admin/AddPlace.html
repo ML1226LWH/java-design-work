@@ -49,7 +49,7 @@
 						<li><a href="about.html"><span data-hover="About">About </span></a></li>
 						<li><a href="../gallery.html"><span data-hover="Scenery">Scenery</span></a></li>
 						<li><a href="../blog.html"><span data-hover="Typo">Typo</span></a></li>
-						<li><a href="../tuyang-login.html"><span class="active" data-hover="Login">Login</span></a></li>
+						<li><a href="../login.html"><span class="active" data-hover="Login">Login</span></a></li>
 					</ul>
 					<ul class="form_acess">
 						<form class="re-disgn1">
@@ -66,7 +66,20 @@
 	<div class="contact_page">
 		<h3>添加旅游地点</h3>
 		<div class="container">
+			<div class="col-md-6">
+				<div class="contact_form">
+					<form method="post" action="/MyNewApp/addPlace" enctype="multipart/form-data">
 
+						<input class="nuber" type="text" name="place" value="地点" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '地点';}" ><br>
+
+						<input  class="name" type="text"  style="width:540px; height:144px;"  name="describe" value="请输入一段简短的描述" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '请输入一段简短的描述';}"><br>
+						<input   class="nuber" type="file"  name="img" value="上传图片"><br>
+
+						<button type="clear" class="btn btn-info mrgn-can">Clear</button>
+						<button type="submit" class="btn btn-info mrgn-can">Submit</button>
+					</form>
+				</div>
+			</div>
 			<div class="col-md-6">
 				<div class="map">
 					<iframe  class="embed-responsive-item" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2708701.6196657238!2d57.47843070707167!3d24.36721917215885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f43496ad9c645%3A0x74ced0bf2b0029e9!2sDubai+-+United+Arab+Emirates!5e0!3m2!1sen!2sin!4v1437020921804"frameborder="0" style="border:0" allowfullscreen></iframe>

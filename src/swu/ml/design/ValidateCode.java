@@ -8,9 +8,9 @@ import java.io.OutputStream;
 import java.util.Random;
 
 public class ValidateCode {
-    private int width = 120;  	// ¶¨ÒåÍ¼Æ¬µÄwidth
-    private int height = 30;	// ¶¨ÒåÍ¼Æ¬µÄheight
-    private int codeCount = 5;	// ¶¨ÒåÍ¼Æ¬ÉÏÏÔÊ¾ÑéÖ¤ÂëµÄ¸öÊý
+    private int width = 120;  	// ï¿½ï¿½ï¿½ï¿½Í¼Æ¬ï¿½ï¿½width
+    private int height = 30;	// ï¿½ï¿½ï¿½ï¿½Í¼Æ¬ï¿½ï¿½height
+    private int codeCount = 5;	// ï¿½ï¿½ï¿½ï¿½Í¼Æ¬ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½Ö¤ï¿½ï¿½Ä¸ï¿½ï¿½ï¿½
     private int fontHeight = 22;
     private BufferedImage codeImage = null;
     private String codeString = null;
@@ -31,28 +31,28 @@ public class ValidateCode {
         gd.setColor(Color.WHITE);
         gd.fillRect(0, 0, width, height);
 
-        // ÉèÖÃ×ÖÌå
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         Font font = new Font("Fixedsys", Font.BOLD, fontHeight);
         gd.setFont(font);
 
-        // »­±ß¿ò¡£
+        // ï¿½ï¿½ï¿½ß¿ï¿½
         gd.setColor(Color.BLACK);
         gd.drawRect(0, 0, width - 1, height - 1);
 
 
         StringBuffer randomCode = new StringBuffer();
-        // Ëæ»ú²úÉúcodeCountÊý×ÖµÄÑéÖ¤Âë¡£
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½codeCountï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½Ö¤ï¿½ë¡£
         for (int i = 0; i < codeCount; i++) {
-            // µÃµ½Ëæ»ú²úÉúµÄÑéÖ¤ÂëÊý×Ö¡£
+            // ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½ï¿½Ö¡ï¿½
             String code = String.valueOf(codeSequence[random.nextInt(this.codeSequence.length)]);
-            // ÓÃËæ»ú²úÉúµÄÑÕÉ«½«ÑéÖ¤Âë»æÖÆµ½Í¼ÏñÖÐ¡£
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½Æµï¿½Í¼ï¿½ï¿½ï¿½Ð¡ï¿½
             gd.setColor(this.randomColor());
             gd.drawString(code, (i + 1) * (this.width / (this.codeCount + 2)), fontHeight - 2);
-            // ½«²úÉúµÄËÄ¸öËæ»úÊý×éºÏÔÚÒ»Æð¡£
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½
             randomCode.append(code);
         }
 
-        // Ëæ»ú²úÉú60Ìõ¸ÉÈÅÏß£¬Ê¹Í¼ÏóÖÐµÄÈÏÖ¤Âë²»Ò×±»ÆäËü³ÌÐòÌ½²âµ½¡£
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½60ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß£ï¿½Ê¹Í¼ï¿½ï¿½ï¿½Ðµï¿½ï¿½ï¿½Ö¤ï¿½ë²»ï¿½×±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½âµ½ï¿½ï¿½
         for (int i = 0; i < 60; i++) {
             int x1 = random.nextInt(width);
             int y1 = random.nextInt(height);
@@ -66,7 +66,7 @@ public class ValidateCode {
         this.codeImage = buffImg;
     }
 
-    // ²úÉúËæ»úµÄÑÕÉ«·ÖÁ¿À´¹¹ÔìÑÕÉ«Öµ£¬ÕâÑùÊä³öµÄÃ¿Î»Êý×ÖµÄÑÕÉ«Öµ¶¼½«²»Í¬¡£
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«Öµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¿Î»ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½É«Öµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¬ï¿½ï¿½
     private Color randomColor() {
         Random random = new Random();
         int red = 0, green = 0, blue = 0;
