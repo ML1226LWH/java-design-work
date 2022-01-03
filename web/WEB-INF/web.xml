@@ -11,7 +11,7 @@
 
     <servlet>
         <servlet-name>loginServlet</servlet-name>
-        <servlet-class>swu.ml.design.LoginServlet</servlet-class>
+        <servlet-class>swu.ml.design.web.servlet.LoginServlet</servlet-class>
 
     </servlet>
 
@@ -22,7 +22,7 @@
 
     <servlet>
         <servlet-name>addPlaceServlet</servlet-name>
-        <servlet-class>swu.ml.design.AddPlaceServlet</servlet-class>
+        <servlet-class>swu.ml.design.web.servlet.AddPlaceServlet</servlet-class>
 
     </servlet>
 
@@ -33,7 +33,7 @@
 
     <servlet>
         <servlet-name>validateCodeServlet</servlet-name>
-        <servlet-class>swu.ml.design.ValidateCodeServlet</servlet-class>
+        <servlet-class>swu.ml.design.web.servlet.ValidateCodeServlet</servlet-class>
 
     </servlet>
 
@@ -41,23 +41,11 @@
         <servlet-name>validateCodeServlet</servlet-name>
         <url-pattern>/validateCode</url-pattern>
     </servlet-mapping>
-
-
-    <servlet>
-        <servlet-name>listPlaceServlet</servlet-name>
-        <servlet-class>swu.ml.design.ListPlaceServlet</servlet-class>
-
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>listPlaceServlet</servlet-name>
-        <url-pattern>/listPlace</url-pattern>
-
-    </servlet-mapping>
+    
 
     <filter>
         <filter-name>authFilter</filter-name>
-        <filter-class>swu.ml.design.AuthFilter</filter-class>
+        <filter-class>swu.ml.design.web.filter.AuthFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>authFilter</filter-name>
@@ -66,7 +54,7 @@
 
     <filter>
         <filter-name>charsetFilter</filter-name>
-        <filter-class>swu.ml.design.CharsetFilter</filter-class>
+        <filter-class>swu.ml.design.web.filter.CharsetFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>charsetFilter</filter-name>

@@ -3,6 +3,7 @@ package swu.ml.design.dao;
 
 import swu.ml.design.Destination;
 import swu.ml.design.utils.BaseDao;
+import swu.ml.design.utils.DBUtils;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -47,5 +48,27 @@ public class DestinationDaoImpl implements DestinationDao {
             e.printStackTrace();
         }
         return destinationList;
+    }
+
+    @Override
+    public List<Destination> selectDestination(int id) throws SQLException {
+        System.out.println("id=" + id);
+        String sql = "SELECT * FROM destination WHERE id=" + id;
+        List<Destination> destinations = null;
+        destinations = DBUtils.getDestinations(sql);
+
+        return destinations;
+    }
+
+    @Override
+    public  List<Destination> listPlace(String searchKey) throws SQLException {
+        String sql="select * from destination";
+        if (null != searchKey && !"".equals(searchKey))
+        {
+            sql="select * from destination where place likes '%"+searchKey+"%' or describe likes '%"+searchKey+"%'";
+        }
+        List<Destination> destinations = new ArrayList<Destination>();
+        destinations=DBUtils.getDestinations(sql);
+        return  destinations;
     }
 }

@@ -83,8 +83,8 @@
                     <li><a href="tuyang-login.html"><span data-hover="Login">Login</span></a></li>
                 </ul>
                 <ul class="form_acess">
-                    <form class="re-disgn1">
-                        <input type="text" name="s" class="textbox" value="Search.." onfocus="this.value = '';"
+                    <form class="re-disgn1" action="../findplace">
+                        <input type="text" name="searchKey" class="textbox" value="Search.." onfocus="this.value = '';"
                                onblur="if (this.value == '') {this.value = 'Search...';}">
                         <input type="submit" value="">
                     </form>
@@ -219,7 +219,7 @@
                     "<span class='glyphicon glyphicon-menu-right nav_rt' aria-hidden='true'>" +
                     "</div>" +
                     "</div>" +
-                    "<a href='EditPlace.jsp?id="+b.id+"' style='margin-left:50px'>编辑</a>"+
+                    "<a href='../editplace?id="+b.id+"' style='margin-left:50px'>编辑</a>"+
                     "<a href='../deleteplace?id="+b.id+"' style='margin-left:10px'>删除</a>"+
                     "</div>" +
                     "</li>";

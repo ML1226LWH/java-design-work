@@ -1,3 +1,4 @@
+<%@ page import="swu.ml.design.Destination" %>
 <!DOCTYPE html>
 <%@ page contentType="text/html; charset=utf-8" language="java" %>
 <html>
@@ -56,7 +57,11 @@
         }
     </style>
 </head>
+
 <body>
+<%
+    Destination destination= (Destination) request.getAttribute("destination");
+%>
 <div class="header">
     <nav class="navbar navbar-default">
         <div class="container">
@@ -204,8 +209,8 @@
 
         $.get(`../listplaces?page=listPage&startPage=${"${startPage}"}&pageSize=${"${pageSize}"}`, function (res) {
             var dataList = "";
-            for (let i = 0; i < res.destinationList.length; i++) {
-                var b = res.destinationList[i];
+            for (let i = 0; i < destinations.length; i++) {
+                var b = destinations[i];
                 dataList += "<li class='col-md-3 pd_stn'>" +
                     "<div class='grid_item'>" +
                     "<a href='" + b.img + "' class='swipebox'>" +

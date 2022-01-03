@@ -1,5 +1,6 @@
 <doctype html!>
     <%@ page contentType="text/html; charset=utf-8" language="java" %>
+    <%@ page import="swu.ml.design.Destination" %>
     <html>
     <head>
         <title>Contact</title>
@@ -10,24 +11,47 @@
 
         <!--fonts-->
 
-
+        ${pageContext.request.contextPath }/css/style.css
         <!--fonts-->
         <!--choclatecss-->
-        <link rel="stylesheet" href="../css/chocolat.css" type="text/css" media="screen" charset="utf-8" />
+        <link rel="stylesheet" href="${pageContext.request.contextPath }/css/chocolat.css" type="text/css" media="screen" charset="utf-8" />
         <!--owlcss-->
-        <link href="../css/owl.carousel.css" rel="stylesheet">
+        <link href="${pageContext.request.contextPath }/css/owl.carousel.css" rel="stylesheet">
         <!--bootstrap-->
-        <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link href="${pageContext.request.contextPath }/css/bootstrap.min.css" rel="stylesheet" type="text/css">
         <!--coustom css-->
-        <link href="../css/style.css" rel="stylesheet" type="text/css"/>
+        <link href="${pageContext.request.contextPath }/css/style.css" rel="stylesheet" type="text/css"/>
         <!--default-js-->
-        <script src="../js/jquery-2.1.4.min.js"></script>
+        <script src="${pageContext.request.contextPath }/js/jquery-2.1.4.min.js"></script>
         <!--bootstrap-js-->
-        <script src="../js/bootstrap.min.js"></script>
+        <script src="${pageContext.request.contextPath }/js/bootstrap.min.js"></script>
         <!--script-->
-        <script src="../js/jquery.circlechart.js"></script>
+        <script src="${pageContext.request.contextPath }/js/jquery.circlechart.js"></script>
+        <script src="${pageContext.request.contextPath}/js/jquery-2.1.4.min.js"></script>
+        <script lang="javascript">
+
+            function getQueryString(name) {
+                var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
+                var r = window.location.search.substr(1).match(reg);
+                if (r != null) {
+                    return unescape(r[2]);
+                }
+                return null;
+            }
+            function showEditPlace() {
+                $.get("../editplace?id=" + getQueryString("id"), function (res) {
+                    console.log(res)
+                    var place=res.place;
+                    var describe=res.describe;
+                })
+            }
+
+        </script>
     </head>
     <body>
+    <%
+        Destination destination= (Destination) request.getAttribute("destination");
+    %>
     <div class="header">
         <nav class="navbar navbar-default">
             <div class="container">
@@ -71,11 +95,12 @@
         <div class="container">
             <div class="col-md-6">
                 <div class="contact_form">
-                    <form method='post' action='../updateplace' enctype='multipart/form-data'>
-                        <table id="data">
-                        </table>
+                    <form method='post' action='/MyNewApp/updateplace' enctype='multipart/form-data'>
+                        <input class='nuber' type='text' name='place' value='<%=destination.getPlace()%>'>
+                        <input class='name' type='text' style='width:540px;height:144px;' name='describe' value='<%=destination.getDescribe()%>'>
+                        <input class='nuber' type='file' name='img' value='<%=destination.getImg()%>'>
+                        <button type='submit' class='btn btn-info mrgn-can'>Submit</button><br>
                     </form>
-                    <button onclick="showEditPlace()" class='btn btn-info mrgn-can'>修改</button>
                 </div>
             </div>
 
@@ -86,7 +111,7 @@
     <div class="logo_label">
         <div class="container">
             <div class="logo re_styl5">
-                <a class="navbar-brand" href="#">Hunk</a>
+                <a class="navbar-brand" href="#">途🐏</a>
             </div>
         </div>
     </div>
@@ -152,31 +177,7 @@
         </div>
     </div>
     </body>
-    <script src="${pageContext.request.contextPath}/js/jquery-2.1.4.min.js"></script>
-    <script lang="javascript">
 
-        function getQueryString(name) {
-            var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
-            var r = window.location.search.substr(1).match(reg);
-            if (r != null) {
-                return unescape(r[2]);
-            }
-            return null;
-        }
-            function showEditPlace() {
-                $.get("../editplace?id=" + getQueryString("id"), function (res) {
-                    console.log(res)
-                    var dataList = "";
-                    dataList += "<input class='nuber' type='text' name='place' value='" + res.place + "'>"
-                        + "<input class='name' type='text' style='width:540px;height:144px;' name='describe' value='" + res.describe + "'>"
-                        + "<input class='nuber' type='file' name='img' value=''>"
-                        + "<button type='submit' class='btn btn-info mrgn-can'>Submit</button><br>";
-                    $("#data").html(dataList);
-
-                })
-        }
-
-    </script>
     </html>
 
 

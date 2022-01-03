@@ -5,6 +5,7 @@ import swu.ml.design.page.PageResult;
 import swu.ml.design.dao.DestinationDao;
 import swu.ml.design.dao.DestinationDaoImpl;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public class DestinationServiceImpl implements DestinationService{
@@ -28,4 +29,17 @@ public class DestinationServiceImpl implements DestinationService{
 
         return result;
     }
+    @Override
+    public Destination selectDestination(int id) throws SQLException {
+        List<Destination> destinations=destinationDao.selectDestination(id);
+        Destination destination=destinations.get(0);
+        return destination;
+    }
+
+    @Override
+    public List<Destination> listPlaces(String searchKey) throws SQLException {
+        List<Destination> destinations= destinationDao.listPlace(searchKey);
+        return destinations;
+    }
+
 }
