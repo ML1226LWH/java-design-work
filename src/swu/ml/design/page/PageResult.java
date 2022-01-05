@@ -1,7 +1,7 @@
 package swu.ml.design.page;
 
 
-import swu.ml.design.Destination;
+import swu.ml.design.domain.Destination;
 
 import java.util.List;
 

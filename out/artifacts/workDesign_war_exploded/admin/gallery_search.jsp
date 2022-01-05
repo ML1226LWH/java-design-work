@@ -1,9 +1,11 @@
-<%@ page import="swu.ml.design.Destination" %>
+<%@ page import="swu.ml.design.domain.Destination" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.Iterator" %>
 <!DOCTYPE html>
 <%@ page contentType="text/html; charset=utf-8" language="java" %>
 <html>
 <head>
-    <title>大好风光呀</title>
+    <title>途羊网站风光</title>
     <meta>
     <meta http-equiv="Content-Type" charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -31,20 +33,24 @@
         }
     </style>
     <!--fonts-->
+
+    ${pageContext.request.contextPath }/css/style.css
+    <!--fonts-->
     <!--choclatecss-->
-    <link rel="stylesheet" href="../css/chocolat.css" type="text/css" media="screen" charset="utf-8"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/css/chocolat.css" type="text/css" media="screen" charset="utf-8" />
     <!--owlcss-->
-    <link href="../css/owl.carousel.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath }/css/owl.carousel.css" rel="stylesheet">
     <!--bootstrap-->
-    <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath }/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <!--coustom css-->
-    <link href="../css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="${pageContext.request.contextPath }/css/style.css" rel="stylesheet" type="text/css"/>
     <!--default-js-->
-    <script src="../js/jquery-2.1.4.min.js"></script>
+    <script src="${pageContext.request.contextPath }/js/jquery-2.1.4.min.js"></script>
     <!--bootstrap-js-->
-    <script src="../js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath }/js/bootstrap.min.js"></script>
     <!--script-->
-    <script src="../js/jquery.circlechart.js"></script>
+    <script src="${pageContext.request.contextPath }/js/jquery.circlechart.js"></script>
+    <script src="${pageContext.request.contextPath}/js/jquery-2.1.4.min.js"></script>
     <style>
         .myset{
             width:228px;
@@ -59,9 +65,6 @@
 </head>
 
 <body>
-<%
-    Destination destination= (Destination) request.getAttribute("destination");
-%>
 <div class="header">
     <nav class="navbar navbar-default">
         <div class="container">
@@ -75,17 +78,16 @@
                     <span class="icon-bar"></span>
                 </button>
                 <div class="logo">
-                    <a class="navbar-brand" href="index.html">Hunk</a>
+                    <a class="navbar-brand" href="index.html">途🐏</a>
                 </div>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav cl-effect-2">
-                    <li><a href="index.html"><span data-hover="Home">Home</span></a></li>
-                    <li><a href="admin/AddPlace.html"><span data-hover="About">About </span></a></li>
-                    <li><a href="gallery.html"><span class="active" data-hover="Scenery">Scenery</span></a></li>
-                    <li><a href="blog.html"><span data-hover="Typo">Typo</span></a></li>
-                    <li><a href="tuyang-login.html"><span data-hover="Login">Login</span></a></li>
+                    <li><a href="index.html"><span data-hover="Home">首页</span></a></li>
+                    <li><a href="./AddPlace.html"><span data-hover="Add">添加</span></a></li>
+                    <li><a href="./gallery_root.jsp"><span class="active" data-hover="Scenery">风景</span></a></li>
+                    <li><a href="../logout"><span class="active" data-hover="Logout">注销</span></a></li>
                 </ul>
                 <ul class="form_acess">
                     <form class="re-disgn1" action="../findplace">
@@ -103,25 +105,48 @@
 <div class="gallery">
     <h3>风景大赏</h3>
     <div class="container">
-        <link rel="stylesheet" href="../css/swipebox.css">
-        <script src="../js/jquery.swipebox.min.js"></script>
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/swipebox.css">
+        <script src="${pageContext.request.contextPath}/js/jquery.swipebox.min.js"></script>
         <script type="text/javascript">
             jQuery(function ($) {
                 $(".swipebox").swipebox();
             });
         </script>
         <div class="gallery-grids">
+<%
+    List<Destination> destinations=(List<Destination>)request.getAttribute("destinations");
+    if(destinations!=null && destinations.size()>0){
+        Iterator it = destinations.iterator();
+        while(it.hasNext()){
+            Destination destination=(Destination) it.next();
+%>
+            <li class='col-md-3 pd_stn'>
+                <div class='grid_item'>
+                    <a href='<%=destination.getImg()%>' class='swipebox'>
+                        "<img src='<%=destination.getImg()%>' class='img-responsive' height='152px'></a>
+                    <div class='myset'>
+                        <%=destination.getDescribe()%>
+                    </div>
+                    <div class='hover_span hvr-text'>
+                        <h5>No.</h5>
+                        <h6><%=destination.getId()%></h6>
+                        <div class='hvr-icons'>
+                            <span class='glyphicon glyphicon-camera cam' aria-hidden='true'>
+                            <span class='glyphicon glyphicon-menu-right nav_rt' aria-hidden='true'>
+                        </div>
+                    </div>
+                </div>
+                </li>
+<%
+                    }
+                }else{
+%>
+                    <h1>暂无该景点！敬请期待！</h1>
+            <%
+                    }
+    %>
 
-            <ul>
-                <table style="margin-bottom: 20px;" width="100%" align="center" border="0" >
-                    <tbody id="data"></tbody>
-                    <a href="javascript:prevPage()">上一页</a>
-                    <a href="javascript:nextPage()">下一页</a>
-                    <input type="hidden" name="currentPage" value="">
-                    <input type="hidden" name="totalPage" value="">
 
-                </table>
-            </ul>
 
         </div>
     </div>
@@ -138,64 +163,46 @@
     <div class="container">
         <div class="div1">
             <div class="col-md-2 head">
-                <h3>get inspired</h3>
+                <h3>即将上线</h3>
                 <ul class="inspired">
-                    <li><a href="#">Head wear</a></li>
-                    <li><a href="#">mens</a></li>
-                    <li><a href="#">Unisex</a></li>
-                    <li><a href="#">Brand protection</a></li>
-                    <li><a href="#">investors</a></li>
+                    <li><a href="#">丽江古城</a></li>
+                    <li><a href="#">海南三亚</a></li>
+                    <li><a href="#">玉龙雪山</a></li>
+                    <li><a href="#">桂林山水</a></li>
+                    <li><a href="#">江西上饶</a></li>
                 </ul>
             </div>
             <div class="col-md-2 head">
-                <h3>support</h3>
+                <h3>已上线</h3>
                 <ul class="customer">
-                    <li><a href="#">Terms and Conditions</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="tuyang-login.html">Contact Us</a></li>
-                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">四川色达</a></li>
+                    <li><a href="#">长白山</a></li>
+                    <li><a href="#">西沙群岛</a></li>
+                    <li><a href="#">乌镇</a></li>
                 </ul>
             </div>
             <div class="col-md-2 head">
                 <h3>sites</h3>
                 <ul class="sites">
-                    <li><a href="#">yyy.com</a></li>
-                    <li><a href="#">zzz.com</a></li>
-                    <li><a href="#">aaa.com</a></li>
+                    <li><a href="https://www.zhihu.com/">进一步查询旅游地点</a></li>
+                    <li><a href="https://www.xiaohongshu.com/">进一步查询旅游地点</a></li>
+                    <li><a href="https://www.tuniu.com/">进一步查询旅游地点</a></li>
                 </ul>
             </div>
             <div class="col-md-2 head">
                 <h3>contents</h3>
                 <ul class="contents">
-                    <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="blog.html">Typo</a></li>
+                    <li><a href="#">Scenery</a></li>
+                    <li><a href="AddPlace.html">Add</a></li>
                 </ul>
             </div>
             <div class="col-md-4 mail_soc">
-                <div class="form_data">
-                    <form>
-                        <input class="mail2" type="text" name="email" value="E-mail" onfocus="this.value = '';"
-                               onblur="if (this.value == '') {this.value = 'E-mail';}">
-                        <input class="btn btn-default re_dsgn6" type="button" value="join">
-                    </form>
-                    <p>subscribe us.</p>
-                </div>
-                <div class="social">
-                    <ul>
-                        <li><a href="#" class="face"></a></li>
-                        <li><a href="#" class="twit"></a></li>
-                        <li><a href="#" class="gplus"></a></li>
-                        <li><a href="#" class="insta"></a></li>
-                    </ul>
-                </div>
+
+
             </div>
             <div class="clearfix"></div>
         </div>
-        <div class="div2">
-            <p>Copyright &copy; 2015.Company name All rights reserved.More Templates <a
-                    href="http://www.baisheng999.com/" target="_blank" title="网站模板库">网站模板库</a> - Collect from <a
-                    href="http://www.baisheng999.com/" title="网页模板" target="_blank">网页模板</a></p>
-        </div>
+
     </div>
 </div>
 </body>
@@ -206,12 +213,12 @@
 
 
     function loadData(startPage,pageSize) {
-
         $.get(`../listplaces?page=listPage&startPage=${"${startPage}"}&pageSize=${"${pageSize}"}`, function (res) {
-            var dataList = "";
-            for (let i = 0; i < destinations.length; i++) {
-                var b = destinations[i];
-                dataList += "<li class='col-md-3 pd_stn'>" +
+        var dataList = "";
+        for (let i = 0; i < destinations.size(); i++) {
+            var b = destinations.get(i);
+            alert(b);
+            dataList += "<li class='col-md-3 pd_stn'>" +
                     "<div class='grid_item'>" +
                     "<a href='" + b.img + "' class='swipebox'>" +
                     "<img src='." + b.img + "' class='img-responsive' height='152px'>"+"</a>"+
@@ -230,11 +237,10 @@
                     "</li>";
 
             }
-            $("#data").html(dataList);
-            $("input[name=currentPage]").val(res.currentPage);
-            $("input[name=totalPage]").val(res.totalPages);
-
-        })
+        $("#data").html(dataList);
+        $("input[name=currentPage]").val(res.currentPage);
+        $("input[name=totalPage]").val(res.totalPages);
+            })
     }
 
     // 上一页

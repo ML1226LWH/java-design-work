@@ -33,6 +33,7 @@ public class ListPlacesServlet extends HttpServlet {
 
         String startPageStr = req.getParameter("startPage");
         String pageSizeStr = req.getParameter("pageSize");
+        String searchKey = req.getParameter("searchKey");
         Integer startPage = 1;
         if (startPageStr != null) {
             startPage = Integer.valueOf(startPageStr);

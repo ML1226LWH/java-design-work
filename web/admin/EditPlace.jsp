@@ -1,9 +1,9 @@
 <doctype html!>
     <%@ page contentType="text/html; charset=utf-8" language="java" %>
-    <%@ page import="swu.ml.design.Destination" %>
+    <%@ page import="swu.ml.design.domain.Destination" %>
     <html>
     <head>
-        <title>Contact</title>
+        <title>途羊网站修改中</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="keywords" content="Play-Offs Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
@@ -64,17 +64,16 @@
                         <span class="icon-bar"></span>
                     </button>
                     <div class="logo">
-                        <a class="navbar-brand" href="index.html">Hunk</a>
+                        <a class="navbar-brand" href="index.html">途🐏</a>
                     </div>
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav cl-effect-2">
-                        <li><a href="index.html"><span data-hover="Home">Home</span></a></li>
-                        <li><a href="about.html"><span data-hover="About">About </span></a></li>
-                        <li><a href="../gallery.html"><span data-hover="Scenery">Scenery</span></a></li>
-                        <li><a href="../blog.html"><span data-hover="Typo">Typo</span></a></li>
-                        <li><a href="../tuyang-login.html"><span class="active" data-hover="Login">Login</span></a></li>
+                        <li><a href="index.html"><span data-hover="Home">首页</span></a></li>
+                        <li><a href="./AddPlace.html"><span data-hover="Add">添加</span></a></li>
+                        <li><a href="./gallery_root.jsp"><span class="active" data-hover="Scenery">风景</span></a></li>
+                        <li><a href="../logout"><span class="active" data-hover="Logout">注销</span></a></li>
                     </ul>
                     <ul class="form_acess">
                         <form class="re-disgn1">
@@ -89,16 +88,17 @@
     </div>
     <!--header-->
 
-
     <div class="contact_page">
         <h3>修改旅游地点</h3>
         <div class="container">
             <div class="col-md-6">
                 <div class="contact_form">
-                    <form method='post' action='/MyNewApp/updateplace' enctype='multipart/form-data'>
-                        <input class='nuber' type='text' name='place' value='<%=destination.getPlace()%>'>
+                    <form method='Post' action="./updateplace" enctype='multipart/form-data'>
+
+                        <input class='nuber' type='text' name='place' value="<%=destination.getPlace()%>">
                         <input class='name' type='text' style='width:540px;height:144px;' name='describe' value='<%=destination.getDescribe()%>'>
                         <input class='nuber' type='file' name='img' value='<%=destination.getImg()%>'>
+                        <input name="id" type="text" value="<%=destination.getId()%>" style="display: none">
                         <button type='submit' class='btn btn-info mrgn-can'>Submit</button><br>
                     </form>
                 </div>
@@ -119,61 +119,46 @@
         <div class="container">
             <div class="div1">
                 <div class="col-md-2 head">
-                    <h3>get inspired</h3>
+                    <h3>即将上线</h3>
                     <ul class="inspired">
-                        <li><a href="#">Head wear</a></li>
-                        <li><a href="#">mens</a></li>
-                        <li><a href="#">Unisex</a></li>
-                        <li><a href="#">Brand protection</a></li>
-                        <li><a href="#">investors</a></li>
+                        <li><a href="#">丽江古城</a></li>
+                        <li><a href="#">海南三亚</a></li>
+                        <li><a href="#">玉龙雪山</a></li>
+                        <li><a href="#">桂林山水</a></li>
+                        <li><a href="#">江西上饶</a></li>
                     </ul>
                 </div>
                 <div class="col-md-2 head">
-                    <h3>support</h3>
+                    <h3>已上线</h3>
                     <ul class="customer">
-                        <li><a href="#">Terms and Conditions</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="../login.html">Contact Us</a></li>
-                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">四川色达</a></li>
+                        <li><a href="#">长白山</a></li>
+                        <li><a href="#">西沙群岛</a></li>
+                        <li><a href="#">乌镇</a></li>
                     </ul>
                 </div>
                 <div class="col-md-2 head">
                     <h3>sites</h3>
                     <ul class="sites">
-                        <li><a href="#">yyy.com</a></li>
-                        <li><a href="#">zzz.com</a></li>
-                        <li><a href="#">aaa.com</a></li>
+                        <li><a href="https://www.zhihu.com/">进一步查询旅游地点</a></li>
+                        <li><a href="https://www.xiaohongshu.com/">进一步查询旅游地点</a></li>
+                        <li><a href="https://www.tuniu.com/">进一步查询旅游地点</a></li>
                     </ul>
                 </div>
                 <div class="col-md-2 head">
                     <h3>contents</h3>
                     <ul class="contents">
-                        <li><a href="../gallery.html">Gallery</a></li>
-                        <li><a href="../blog.html">Typo</a></li>
+                        <li><a href="#">Scenery</a></li>
+                        <li><a href="AddPlace.html">Add</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4 mail_soc">
-                    <div class="form_data">
-                        <form>
-                            <input class="mail2" type="text" name="email" value="E-mail" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'E-mail';}">
-                            <input class="btn btn-default re_dsgn6" type="button" value="join">
-                        </form>
-                        <p>subscribe us.</p>
-                    </div>
-                    <div class="social">
-                        <ul>
-                            <li><a href="#" class="face"></a></li>
-                            <li><a href="#" class="twit"></a></li>
-                            <li><a href="#" class="gplus"></a></li>
-                            <li><a href="#" class="insta"></a></li>
-                        </ul>
-                    </div>
+
+
                 </div>
                 <div class="clearfix"></div>
             </div>
-            <div class="div2">
-                <p>Copyright &copy; 2015.Company name All rights reserved.More Templates <a href="http://www.baisheng999.com/" target="_blank" title="网站模板库">网站模板库</a> - Collect from <a href="http://www.baisheng999.com/" title="网页模板" target="_blank">网页模板</a></p>
-            </div>
+
         </div>
     </div>
     </body>

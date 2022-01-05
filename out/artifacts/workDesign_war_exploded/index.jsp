@@ -51,17 +51,18 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav cl-effect-2 active_hover">
           <li><a href="index.jsp"><span class="active" data-hover="Home">Home</span></a></li>
-          <li><a href="admin/AddPlace.html"><span data-hover="About">About </span></a></li>
           <li><a href="gallery.jsp"><span data-hover="Scenery">Scenery</span></a></li>
-          <li><a href="blog.html"><span data-hover="Typo">Typo</span></a></li>
           <li><a href="tuyang-login.html"><span data-hover="Login">Login</span></a></li>
           <li><a><span data-hover="当前访问人数">当前访问<%=this.getServletConfig().getServletContext().getAttribute("count")%>人</span></a></li>
         </ul>
         <ul class="form_acess">
-          <form class="re-disgn1">
-            <input type="text" name="s" class="textbox" value="Search.." onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Search...';}">
-            <input type="submit" value="">
-          </form>
+          <div class="search">
+            <form action="./findplace" method="get">
+              <input type="text" id="searchKey" name="searchKey" class="textbox" value="Search.." onfocus="this.value = '';"
+                     onblur="if (this.value == '') {this.value = 'Search..';}">
+              <input type="submit" id="search-submit" value="">
+            </form>
+          </div>
         </ul>
       </div><!-- /.navbar-collapse -->
       <div class="clearfix"></div>
@@ -205,7 +206,7 @@
             <figcaption>
               <h3>西湖</h3>
               <span>浙江杭州</span>
-              <a href="gallery.html">Take a look</a>
+              <a href="gallery.jsp">Take a look</a>
             </figcaption>
           </figure>
         </li>
@@ -217,7 +218,7 @@
             <figcaption>
               <h3>色达</h3>
               <span>四川省西北部</span>
-              <a href="gallery.html">Take a look</a>
+              <a href="gallery.jsp">Take a look</a>
             </figcaption>
           </figure>
         </li>
@@ -229,7 +230,7 @@
             <figcaption>
               <h3>乌镇</h3>
               <span>浙江省嘉兴市桐乡市</span>
-              <a href="gallery.html">Take a look</a>
+              <a href="gallery.jsp">Take a look</a>
             </figcaption>
           </figure>
         </li>
@@ -241,7 +242,7 @@
             <figcaption>
               <h3>喀纳斯</h3>
               <span>喀纳斯风景区，位于新疆阿尔泰山中段</span>
-              <a href="gallery.html">Take a look</a>
+              <a href="gallery.jsp">Take a look</a>
             </figcaption>
           </figure>
         </li>
@@ -287,61 +288,46 @@
   <div class="container">
     <div class="div1">
       <div class="col-md-2 head">
-        <h3>get inspired</h3>
+        <h3>即将上线</h3>
         <ul class="inspired">
-          <li><a href="#">Head wear</a></li>
-          <li><a href="#">mens</a></li>
-          <li><a href="#">Unisex</a></li>
-          <li><a href="#">Brand protection</a></li>
-          <li><a href="#">investors</a></li>
+          <li><a href="#">丽江古城</a></li>
+          <li><a href="#">海南三亚</a></li>
+          <li><a href="#">玉龙雪山</a></li>
+          <li><a href="#">桂林山水</a></li>
+          <li><a href="#">江西上饶</a></li>
         </ul>
       </div>
       <div class="col-md-2 head">
-        <h3>support</h3>
+        <h3>已上线</h3>
         <ul class="customer">
-          <li><a href="#">Terms and Conditions</a></li>
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="tuyang-login.html">Contact Us</a></li>
-          <li><a href="#">FAQ</a></li>
+          <li><a href="#">四川色达</a></li>
+          <li><a href="#">长白山</a></li>
+          <li><a href="#">西沙群岛</a></li>
+          <li><a href="#">乌镇</a></li>
         </ul>
       </div>
       <div class="col-md-2 head">
         <h3>sites</h3>
         <ul class="sites">
-          <li><a href="#">yyy.com</a></li>
-          <li><a href="#">zzz.com</a></li>
-          <li><a href="#">aaa.com</a></li>
+          <li><a href="https://www.zhihu.com/">进一步查询旅游地点</a></li>
+          <li><a href="https://www.xiaohongshu.com/">进一步查询旅游地点</a></li>
+          <li><a href="https://www.tuniu.com/">进一步查询旅游地点</a></li>
         </ul>
       </div>
       <div class="col-md-2 head">
         <h3>contents</h3>
         <ul class="contents">
-          <li><a href="gallery.html">Gallery</a></li>
-          <li><a href="blog.html">Typo</a></li>
+          <li><a href="#">Scenery</a></li>
+          <li><a href="AddPlace.html">Add</a></li>
         </ul>
       </div>
       <div class="col-md-4 mail_soc">
-        <div class="form_data">
-          <form>
-            <input class="mail2" type="text" name="email" value="E-mail" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'E-mail';}">
-            <input class="btn btn-default re_dsgn6" type="button" value="join">
-          </form>
-          <p>subscribe us.</p>
-        </div>
-        <div class="social">
-          <ul>
-            <li><a href="#" class="face"></a></li>
-            <li><a href="#" class="twit"></a></li>
-            <li><a href="#" class="gplus"></a></li>
-            <li><a href="#" class="insta"></a></li>
-          </ul>
-        </div>
+
+
       </div>
       <div class="clearfix"></div>
     </div>
-    <div class="div2">
-      <p>Copyright &copy; 2015.Company name All rights reserved.More Templates <a href="http://www.baisheng999.com/" target="_blank" title="网站模板库">网站模板库</a> - Collect from <a href="http://www.baisheng999.com/" title="网页模板" target="_blank">网页模板</a></p>
-    </div>
+
   </div>
 </div>
 </body>

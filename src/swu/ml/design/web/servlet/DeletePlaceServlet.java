@@ -1,5 +1,7 @@
 package swu.ml.design.web.servlet;
 
+import swu.ml.design.service.DestinationService;
+import swu.ml.design.service.DestinationServiceImpl;
 import swu.ml.design.utils.DBUtils;
 
 import javax.servlet.annotation.WebServlet;
@@ -12,17 +14,15 @@ import java.sql.SQLException;
 @WebServlet("/deleteplace")
 public class DeletePlaceServlet extends HttpServlet {
     private static final long serialVersionUID=1824629527973895L;
+    private DestinationService destinationService = new DestinationServiceImpl();
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         this.doPost(request,response);
     }
     public void doPost(HttpServletRequest request,HttpServletResponse response) throws IOException {
         String id = request.getParameter("id");
         System.out.println("id=" + id);
-        String sql = "DELETE FROM destination WHERE id=" + id;
-        System.out.println("sql=" + sql);
         try {
-            DBUtils.delete(sql);
-            System.out.println("success!");
+            destinationService.deletePlace(id);
         } catch (SQLException e) {
             e.printStackTrace();
         }

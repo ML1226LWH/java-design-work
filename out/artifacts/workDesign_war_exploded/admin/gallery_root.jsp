@@ -70,24 +70,26 @@
                     <span class="icon-bar"></span>
                 </button>
                 <div class="logo">
-                    <a class="navbar-brand" href="index.html">Hunk</a>
+                    <a class="navbar-brand" href="index.html">途🐏</a>
                 </div>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav cl-effect-2">
-                    <li><a href="index.html"><span data-hover="Home">Home</span></a></li>
-                    <li><a href="admin/AddPlace.html"><span data-hover="About">About </span></a></li>
-                    <li><a href="gallery.html"><span class="active" data-hover="Scenery">Scenery</span></a></li>
-                    <li><a href="blog.html"><span data-hover="Typo">Typo</span></a></li>
-                    <li><a href="tuyang-login.html"><span data-hover="Login">Login</span></a></li>
+                    <li><a href="index.html"><span data-hover="Home">首页</span></a></li>
+                    <li><a href="./AddPlace.html"><span data-hover="Add">添加</span></a></li>
+                    <li><a href="#"><span class="active" data-hover="Scenery">风景</span></a></li>
+                    <li><a href="../logout"><span class="active" data-hover="Logout">注销</span></a></li>
+
                 </ul>
                 <ul class="form_acess">
-                    <form class="re-disgn1" action="../findplace">
-                        <input type="text" name="searchKey" class="textbox" value="Search.." onfocus="this.value = '';"
-                               onblur="if (this.value == '') {this.value = 'Search...';}">
-                        <input type="submit" value="">
-                    </form>
+                    <div class="search">
+                        <form action="../findplace" method="get">
+                            <input type="text" id="searchKey" name="searchKey" class="textbox" value="Search.." onfocus="this.value = '';"
+                               onblur="if (this.value == '') {this.value = 'Search..';}">
+                            <input type="submit" id="search-submit" value="">
+                        </form>
+                    </div>
                 </ul>
             </div><!-- /.navbar-collapse -->
             <div class="clearfix"></div>
@@ -109,7 +111,7 @@
 
             <ul>
                 <table style="margin-bottom: 20px;" width="100%" align="center" border="0" >
-                    <tbody id="data"></tbody>
+                    <tbody id="data" height="500px"></tbody>
                     <a href="javascript:prevPage()">上一页</a>
                     <a href="javascript:nextPage()">下一页</a>
                     <input type="hidden" name="currentPage" value="">
@@ -133,71 +135,55 @@
     <div class="container">
         <div class="div1">
             <div class="col-md-2 head">
-                <h3>get inspired</h3>
+                <h3>即将上线</h3>
                 <ul class="inspired">
-                    <li><a href="#">Head wear</a></li>
-                    <li><a href="#">mens</a></li>
-                    <li><a href="#">Unisex</a></li>
-                    <li><a href="#">Brand protection</a></li>
-                    <li><a href="#">investors</a></li>
+                    <li><a href="#">丽江古城</a></li>
+                    <li><a href="#">海南三亚</a></li>
+                    <li><a href="#">玉龙雪山</a></li>
+                    <li><a href="#">桂林山水</a></li>
+                    <li><a href="#">江西上饶</a></li>
                 </ul>
             </div>
             <div class="col-md-2 head">
-                <h3>support</h3>
+                <h3>已上线</h3>
                 <ul class="customer">
-                    <li><a href="#">Terms and Conditions</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="tuyang-login.html">Contact Us</a></li>
-                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">四川色达</a></li>
+                    <li><a href="#">长白山</a></li>
+                    <li><a href="#">西沙群岛</a></li>
+                    <li><a href="#">乌镇</a></li>
                 </ul>
             </div>
             <div class="col-md-2 head">
                 <h3>sites</h3>
                 <ul class="sites">
-                    <li><a href="#">yyy.com</a></li>
-                    <li><a href="#">zzz.com</a></li>
-                    <li><a href="#">aaa.com</a></li>
+                    <li><a href="https://www.zhihu.com/">进一步查询旅游地点</a></li>
+                    <li><a href="https://www.xiaohongshu.com/">进一步查询旅游地点</a></li>
+                    <li><a href="https://www.tuniu.com/">进一步查询旅游地点</a></li>
                 </ul>
             </div>
             <div class="col-md-2 head">
                 <h3>contents</h3>
                 <ul class="contents">
-                    <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="blog.html">Typo</a></li>
+                    <li><a href="#">Scenery</a></li>
+                        <li><a href="AddPlace.html">Add</a></li>
                 </ul>
             </div>
             <div class="col-md-4 mail_soc">
-                <div class="form_data">
-                    <form>
-                        <input class="mail2" type="text" name="email" value="E-mail" onfocus="this.value = '';"
-                               onblur="if (this.value == '') {this.value = 'E-mail';}">
-                        <input class="btn btn-default re_dsgn6" type="button" value="join">
-                    </form>
-                    <p>subscribe us.</p>
-                </div>
-                <div class="social">
-                    <ul>
-                        <li><a href="#" class="face"></a></li>
-                        <li><a href="#" class="twit"></a></li>
-                        <li><a href="#" class="gplus"></a></li>
-                        <li><a href="#" class="insta"></a></li>
-                    </ul>
-                </div>
+
+
             </div>
             <div class="clearfix"></div>
         </div>
-        <div class="div2">
-            <p>Copyright &copy; 2015.Company name All rights reserved.More Templates <a
-                    href="http://www.baisheng999.com/" target="_blank" title="网站模板库">网站模板库</a> - Collect from <a
-                    href="http://www.baisheng999.com/" title="网页模板" target="_blank">网页模板</a></p>
-        </div>
+
     </div>
 </div>
 </body>
 <script lang="javascript">
+
+
     $(function () {
         loadData(1,4);
-    })
+    });
 
 
     function loadData(startPage,pageSize) {
@@ -209,7 +195,7 @@
                 dataList += "<li class='col-md-3 pd_stn'>" +
                     "<div class='grid_item'>" +
                     "<a href='" + b.img + "' class='swipebox'>" +
-                    "<img src='." + b.img + "' class='img-responsive' height='152px'>"+"</a>"+
+                    "<img src='." + b.img + "' class='img-responsive' height='175px'>"+"</a>"+
                     "<div class='myset'>"+b.describe+"</div>"+
                     "<div class='hover_span hvr-text'>" +
                     "<h5>No.</h5>" +

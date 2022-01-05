@@ -42,9 +42,8 @@ public class DruidUtil {
      * @return
      * @throws SQLException
      */
-    public Connection getconnection() throws SQLException {
+    public static Connection getConnection() throws SQLException {
         return ds.getConnection();
-
     }
 
 

@@ -1,6 +1,6 @@
 package swu.ml.design.web.servlet;
 
-import swu.ml.design.Destination;
+import swu.ml.design.domain.Destination;
 import swu.ml.design.service.DestinationService;
 import swu.ml.design.service.DestinationServiceImpl;
 

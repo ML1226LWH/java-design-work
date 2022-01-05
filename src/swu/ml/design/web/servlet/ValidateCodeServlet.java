@@ -1,6 +1,6 @@
 package swu.ml.design.web.servlet;
 
-import swu.ml.design.ValidateCode;
+import swu.ml.design.domain.ValidateCode;
 import swu.ml.design.web.filter.AuthFilter;
 
 import javax.servlet.http.HttpServlet;
