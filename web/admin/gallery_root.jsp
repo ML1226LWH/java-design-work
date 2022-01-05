@@ -194,7 +194,7 @@
                 var b = res.destinationList[i];
                 dataList += "<li class='col-md-3 pd_stn'>" +
                     "<div class='grid_item'>" +
-                    "<a href='" + b.img + "' class='swipebox'>" +
+                    "<a href='." + b.img + "' class='swipebox'>" +
                     "<img src='." + b.img + "' class='img-responsive' height='175px'>"+"</a>"+
                     "<div class='myset'>"+b.describe+"</div>"+
                     "<div class='hover_span hvr-text'>" +

@@ -57,8 +57,8 @@ public class DestinationServiceImpl implements DestinationService{
     public void updatePlace(String id,HttpServletRequest request) throws Exception {
         Destination destination=imgOperate(request);
         String sql = String.format("UPDATE destination SET " +
-                        "place=`%s`, img=`%s`, describe=`%s`, WHERE id=`%s`;",
-                destination.getPlace(), destination.getDescribe(),destination.getImg(), id);
+                        "`place`='%s', `describe`='%s', `img`='%s' WHERE `id`=%s",
+                destination.getPlace(), destination.getDescribe(),destination.getImg(), destination.getId());
         System.out.println(sql);
         destinationDao.updatePlace(sql);
     }
@@ -107,6 +107,7 @@ public class DestinationServiceImpl implements DestinationService{
         }
         String place = null;
         String describe=null;
+        String id=null;
 
         String pics = "";
             // 解析请求的内容提取文件数据
@@ -131,6 +132,9 @@ public class DestinationServiceImpl implements DestinationService{
                         if (item.getFieldName().equals("describe")) {
                             describe = item.getString();
                         }
+                        if (item.getFieldName().equals("id")) {
+                            id = item.getString();
+                        }
                     }
                 }
 
@@ -139,6 +143,7 @@ public class DestinationServiceImpl implements DestinationService{
             destination.setPlace(place);
             destination.setDescribe(describe);
             destination.setImg(pics);
+            destination.setId(Integer.valueOf(id));
             return destination;
         }
 
